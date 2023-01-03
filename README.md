@@ -1,1 +1,3 @@
 # MyBank
+
+CRIAR SCHEMA NA MÃO
