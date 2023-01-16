@@ -1,16 +1,19 @@
-package my.bank.dto;
+package my.bank.adapter.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import my.bank.domain.User;
+import my.bank.adapter.domain.User;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
 @Builder
-public class UserDto {
+@AllArgsConstructor
+public class UserDto implements Serializable {
 
     private Long id;
 

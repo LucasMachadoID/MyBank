@@ -18,7 +18,7 @@
         <!-- SPRING -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
             <version>2.7.7</version>
         </dependency>
         <dependency>
@@ -30,6 +30,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>2.8.0</version>
         </dependency>
 
         <!-- OTHERS -->

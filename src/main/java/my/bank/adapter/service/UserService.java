@@ -1,8 +1,10 @@
-package my.bank.service;
+package my.bank.adapter.service;
 
-import my.bank.domain.User;
-import my.bank.dto.UserDto;
-import my.bank.repository.UserRepository;
+import my.bank.adapter.domain.User;
+import my.bank.adapter.dto.UserDto;
+import my.bank.adapter.repository.UserRepository;
+import my.bank.usecase.exception.UserNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +15,10 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserService {
+
+    private final String USER_NOT_FOUND = "USER_NOT_FOUND";
+
+    @Autowired
     private UserRepository userRepository;
 
     public UserDto saveUser(UserDto user) {
@@ -28,8 +34,7 @@ public class UserService {
                 users.getTotalElements());
     }
 
-    public UserDto findUser(Long id) {
-        User user = userRepository.findById(id).orElseThrow(NoSuchElementException::new);
-        return new UserDto(user);
+    public User findById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(USER_NOT_FOUND));
     }
 }

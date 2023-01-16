@@ -1,6 +1,6 @@
-package my.bank.repository;
+package my.bank.adapter.repository;
 
-import my.bank.domain.AccountType;
+import my.bank.adapter.domain.AccountType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

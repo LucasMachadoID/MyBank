@@ -1,7 +1,9 @@
-package my.bank.controller;
+package my.bank.adapter.controller;
 
-import my.bank.dto.UserDto;
-import my.bank.service.UserService;
+import my.bank.adapter.domain.User;
+import my.bank.adapter.dto.UserDto;
+import my.bank.adapter.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("user")
 public class UserController {
 
+    @Autowired
     private UserService userService;
 
     @PostMapping()
@@ -22,8 +25,8 @@ public class UserController {
 
     @GetMapping("/{id}")
     private ResponseEntity<UserDto> findUser(@PathVariable Long id) {
-        UserDto user = userService.findUser(id);
-        return ResponseEntity.ok(user);
+        User user = userService.findById(id);
+        return ResponseEntity.ok(new UserDto(user));
     }
 
     @GetMapping("/list")

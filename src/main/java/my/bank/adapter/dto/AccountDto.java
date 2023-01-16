@@ -1,16 +1,17 @@
-package my.bank.dto;
+package my.bank.adapter.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import my.bank.domain.Account;
-import my.bank.domain.AccountType;
+import my.bank.adapter.domain.Account;
+import my.bank.adapter.domain.AccountType;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class AccountDto {
+public class AccountDto implements Serializable {
 
     private Long id;
 

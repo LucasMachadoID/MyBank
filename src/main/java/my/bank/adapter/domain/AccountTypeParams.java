@@ -1,4 +1,4 @@
-package my.bank.domain;
+package my.bank.adapter.domain;
 
 public enum AccountTypeParams {
     SAVING(1L, "Saving"),
